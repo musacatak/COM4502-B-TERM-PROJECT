@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 2502919105206190128}
   - component: {fileID: 2502919105206190093}
   - component: {fileID: 2502919105206190094}
+  - component: {fileID: 5668544803474939627}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -302,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputController: {fileID: 2502919105206190094}
-  verticalSpeed: 5
+  verticalSpeed: 1
   horizontalSpeed: 5
   horizontalLimits: 2
 --- !u!114 &2502919105206190094
@@ -317,6 +318,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f356cbe8899b4e84ca6a42edf6f5621a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5668544803474939627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2502919105206190130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d480cbb87772c45b158ce56371565b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnGemCollected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: UpdateGemText
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5668544803474939627}
+          m_ObjectArgumentAssemblyTypeName: Inventory, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2279444391614258514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -508,6 +536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubesParent
       objectReference: {fileID: 0}
+    - target: {fileID: 7270941905201600375, guid: e6759f471c1d80f4b8859603f300e571, type: 3}
+      propertyPath: ptransform
+      value: 
+      objectReference: {fileID: 2502919105206190129}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6759f471c1d80f4b8859603f300e571, type: 3}
 --- !u!4 &2502919106028304831 stripped

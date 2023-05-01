@@ -45,7 +45,7 @@ public class CubeManager : MonoBehaviour
         _gameObject.GetComponent<BoxCollider>().enabled = false;
 
         cubeList.Remove(_gameObject);
-
+        
         if (cubeList.Count < 1)
         {
             Debug.Log("GameOver");
