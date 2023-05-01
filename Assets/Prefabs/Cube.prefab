@@ -126,6 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b767d3b59d9f1a84d83ee02613bd82d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collector: {fileID: 0}
-  cubeManager: {fileID: 0}
-  ptransform: {fileID: 0}
+  collector: {fileID: 4403976394963434653, guid: 25e92b15c4c1beb4e9900ef055206019, type: 3}
+  cubeManager: {fileID: 7199664662895841606, guid: e6759f471c1d80f4b8859603f300e571, type: 3}
+  ptransform: {fileID: 2502919105206190129, guid: 8020c0d196e7053449f36b1fda646c7d, type: 3}
