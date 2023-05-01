@@ -6,17 +6,11 @@ using DG.Tweening;
 public class CubeManager : MonoBehaviour
 {
     private float stepLength = 1;
-    //GameManager gameManager;
     //GameObject playerModel;
     //Transform playerTransform;
     public MovementController move;
 
     public List<GameObject> cubeList = new List<GameObject>();
-
-    private void Awake()
-    {
-        //gameManager = GameObject.FindObjectOfType<GameManager>();
-    }
 
     void Start()
     {
@@ -63,8 +57,6 @@ public class CubeManager : MonoBehaviour
             Vector3 groundTarget = new Vector3(0f, -0.1f, -1.5f);
             //playerModel.transform.DOLocalJump(groundTarget, 1f, 1, 0.5f);
 
-            //gameManager.TriggerLevelFinish();
-
         }
 
         RelocatePlayer();
@@ -92,7 +84,7 @@ public class CubeManager : MonoBehaviour
             Vector3 groundTarget = new Vector3(0f, -0.1f, -1.5f);
             //playerModel.transform.DOLocalJump(groundTarget, 1f, 1, 0.5f);
 
-            //gameManager.TriggerLevelFinish();
+            //TriggerGameOver
 
         }
 

@@ -10,16 +10,14 @@ public class CollectableCube : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Obstacle")
-        {
-            //SFXManager.sfxInstance.Audio.PlayOneShot(SFXManager.sfxInstance.DropCube);
+        {            
             cubeManager.DropCube(this.gameObject);
             Invoke("RRorder", 0.2f);
 
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.gameObject.tag == "X1")
-        {
-            //SFXManager.sfxInstance.Audio.PlayOneShot(SFXManager.sfxInstance.DropCube);
+        {           
             cubeManager.DropCubeWhenSucces(this.gameObject);
             Invoke("RRorder", 0.05f);
 
