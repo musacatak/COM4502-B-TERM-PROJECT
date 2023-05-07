@@ -4,23 +4,44 @@ using UnityEngine;
 
 public class Collector : MonoBehaviour
 {
-    GameObject mainCube, playerModel;    
-    public CubeManager cubeManager;
+    [SerializeField] private CubeHandler cubeHandler;
+
+    [SerializeField] private GameManager gameManager;
+
+    public ParticleSystem gemParticle;
+
+    private void Start()
+    {
+        cubeHandler = GameObject.FindObjectOfType<CubeHandler>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Collect" && other.gameObject.GetComponent<CollectableCube>().GetIsCollected() == false)
-        {           
-            Debug.Log("Collected");
-
-            cubeManager.GetCube(other.gameObject);
-        }    
-
-        else if (other.gameObject.tag == "Finish")
+        if (other.tag == "Collect")
         {
-            Debug.Log(cubeManager.cubeList.Count);            
-
+            other.tag = "Cube";
+            cubeHandler.AddBlock(other.gameObject);
+            SFXManager.sfxInstance.Audio.PlayOneShot(SFXManager.sfxInstance.cubeClip);
         }
-    }
 
+        else if (other.tag == "Gem")
+        {
+            Destroy(other.gameObject);
+            Instantiate(gemParticle, other.gameObject.transform.position, Quaternion.identity);
+            gameManager.TakeGem();
+            SFXManager.sfxInstance.Audio.PlayOneShot(SFXManager.sfxInstance.gemClip);
+        }
+
+        else if (other.tag == "Finish")
+        {
+            gameManager.LevelFinished();
+        }
+
+        //else if (other.tag == "X1")
+        //{
+        //    Debug.Log("LAST PLATFORM UPDATE");
+        //    cubeHandler.UpdateGroundLevel(0.5f);
+        //}
+    }
 }

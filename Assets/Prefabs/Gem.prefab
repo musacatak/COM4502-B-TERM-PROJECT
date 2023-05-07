@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: -7531252137956897385}
   - component: {fileID: 1942520715270342240}
   - component: {fileID: 1449645628158177652}
-  - component: {fileID: -1750187072836946773}
-  m_Layer: 0
+  - component: {fileID: 7765815951556113943}
+  m_Layer: 6
   m_Name: Gem
   m_TagString: Gem
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210093904628165066}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.528658, y: 0.43810678, z: 0.4578313}
@@ -107,7 +107,7 @@ Animator:
   m_GameObject: {fileID: 7210093904628165066}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0bd1515dd727a864083150e4a7699951, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -116,15 +116,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-1750187072836946773
-MonoBehaviour:
+--- !u!54 &7765815951556113943
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210093904628165066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba8ee852f14d1f043b6bcfb1f98d3eaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0

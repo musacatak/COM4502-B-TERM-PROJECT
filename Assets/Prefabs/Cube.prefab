@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7700977822882267230}
   - component: {fileID: 8244707053682388908}
   - component: {fileID: 4696492453324290361}
-  - component: {fileID: -7100480816812550297}
+  - component: {fileID: 1917231726}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Collect
@@ -92,7 +92,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5089422641863471151}
-  m_Material: {fileID: 13400000, guid: 1e8084cbf2b62904f8205178757c01c2, type: 2}
+  m_Material: {fileID: 13400000, guid: 24a708abafcd2e04c899b40cc7313d01, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -112,9 +112,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
---- !u!114 &-7100480816812550297
+--- !u!114 &1917231726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,9 +123,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5089422641863471151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b767d3b59d9f1a84d83ee02613bd82d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 80b5547b75371a24eab93eb7f101c5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collector: {fileID: 4403976394963434653, guid: 25e92b15c4c1beb4e9900ef055206019, type: 3}
-  cubeManager: {fileID: 7199664662895841606, guid: e6759f471c1d80f4b8859603f300e571, type: 3}
-  ptransform: {fileID: 2502919105206190129, guid: 8020c0d196e7053449f36b1fda646c7d, type: 3}
+  cubeHandler: {fileID: 0}
+  easeCurve: 9
+  easeDuration: 0.5
