@@ -35,7 +35,9 @@ public class Collector : MonoBehaviour
 
         else if (other.tag == "Finish")
         {
+            Debug.Log("Finish Reached");
             gameManager.LevelFinished();
+            cubeHandler.SetMultiplier();
         }
 
         //else if (other.tag == "X1")

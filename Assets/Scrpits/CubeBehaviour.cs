@@ -33,9 +33,8 @@ public class CubeBehaviour : MonoBehaviour
             {
                 FindObjectOfType<GameManager>().PlayerFailed();
             }
-            //this.GetComponent<BoxCollider>().size = new Vector3(0.0099f, 0.01f, 0.0099f);
-            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             this.GetComponent<Rigidbody>().isKinematic = true;
+            SFXManager.sfxInstance.Audio.PlayOneShot(SFXManager.sfxInstance.cubeLoseClip);
             Destroy(this.gameObject, 5f);
         }
     }

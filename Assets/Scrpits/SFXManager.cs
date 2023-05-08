@@ -10,6 +10,8 @@ public class SFXManager : MonoBehaviour
 
     public AudioClip gemClip;
 
+    public AudioClip cubeLoseClip;
+
     public static SFXManager sfxInstance;
 
 

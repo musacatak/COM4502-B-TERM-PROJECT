@@ -17,14 +17,16 @@ public class CubeHandler : MonoBehaviour
     public ParticleSystem cubeParticle;
 
     public GameObject trailEffect;
+    public GameObject collector;
 
-    float groundLevel = -0.5f;
     float camZPos = -12f;
+
+    int currentLevelMultiplier = 1;
 
     public void AddBlock(GameObject _gameObject)
     {
         player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2.5f, player.transform.position.z);
-        float yVal = blockList.Count + groundLevel;
+        float yVal = blockList.Count;
         _gameObject.transform.SetParent(this.transform);
         _gameObject.transform.position = new Vector3(player.transform.position.x, yVal + 1.5f, player.transform.position.z);
 
@@ -50,25 +52,27 @@ public class CubeHandler : MonoBehaviour
         cameraTransform.DOLocalMoveZ(camZPos, 0.3f);
     }
 
-    public void UpdateBlockHeight()
-    {
-        for (int i = 0; i < blockList.Count; i++)
-        {
-            blockList[i].GetComponent<CubeBehaviour>().updateHeight(i + groundLevel, i * 0.05f);
-
-            //in their new height methods I can use dotween or some other things to make them animated ...
-        }
-        isBlockRemoved = false;
-    }
-
     public void UpdateGroundLevel(float y)
     {
         if (blockList.Count >= 1)
         {
-            groundLevel += y;
-            Debug.Log("New Ground Level " + groundLevel);
-            trailEffect.transform.Translate(0f, groundLevel + 0.51f, 0f, Space.World);
+            trailEffect.transform.position += new Vector3(0, 1f, 0);
+            collector.transform.position += new Vector3(0, 1f, 0);
+            float yPos = cameraTransform.position.y + 1;
+            cameraTransform.DOLocalMoveY(yPos, 0.3f);
         }
+    }
+
+    public void SetMultiplier()
+    {
+        currentLevelMultiplier = blockList.Count - 1;
+        if (currentLevelMultiplier > 10)
+            currentLevelMultiplier = 10;
+    }
+
+    public int GetMultiplier()
+    {
+        return currentLevelMultiplier;
     }
 
 }
