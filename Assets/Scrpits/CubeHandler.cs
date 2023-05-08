@@ -68,6 +68,8 @@ public class CubeHandler : MonoBehaviour
         currentLevelMultiplier = blockList.Count - 1;
         if (currentLevelMultiplier > 10)
             currentLevelMultiplier = 10;
+        else if (currentLevelMultiplier < 1)
+            currentLevelMultiplier = 1;
     }
 
     public int GetMultiplier()
