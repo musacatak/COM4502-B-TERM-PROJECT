@@ -13,7 +13,7 @@ public class CubeBehaviour : MonoBehaviour
    
     public float easeDuration;
 
-    bool isLastCube = false;
+    public bool isLastCube = false;
 
     private void Start()
     {
@@ -34,7 +34,6 @@ public class CubeBehaviour : MonoBehaviour
             {
                 FindObjectOfType<GameManager>().PlayerFailed();
             }
-            this.GetComponent<Rigidbody>().isKinematic = true;
             SFXManager.sfxInstance.Audio.PlayOneShot(SFXManager.sfxInstance.cubeLoseClip);
             Destroy(this.gameObject, 5f);
         }

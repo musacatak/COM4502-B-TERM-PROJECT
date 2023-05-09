@@ -39,11 +39,5 @@ public class Collector : MonoBehaviour
             gameManager.LevelFinished();
             cubeHandler.SetMultiplier();
         }
-
-        //else if (other.tag == "X1")
-        //{
-        //    Debug.Log("LAST PLATFORM UPDATE");
-        //    cubeHandler.UpdateGroundLevel(0.5f);
-        //}
     }
 }
