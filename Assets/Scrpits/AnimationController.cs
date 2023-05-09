@@ -61,6 +61,7 @@ public class AnimationController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Land");
         if (other.CompareTag("Collect"))
         {
             Land();

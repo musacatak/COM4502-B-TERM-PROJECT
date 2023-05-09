@@ -142,4 +142,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeHandler: {fileID: 0}
   easeCurve: 9
+  animationController: {fileID: 1890086670515316315, guid: c27320a61646901468d51b76270642ab, type: 3}
   easeDuration: 0.5
