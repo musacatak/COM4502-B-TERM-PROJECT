@@ -45,7 +45,6 @@ public class AnimationController : MonoBehaviour
     {
         if (other.gameObject.tag == "Cube")
         {
-            Debug.Log("Cube coll");
             animator.SetBool("Jump", false);
             animator.SetBool("Surfing", true);
         }
