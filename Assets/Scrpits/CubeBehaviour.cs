@@ -10,6 +10,8 @@ public class CubeBehaviour : MonoBehaviour
 
     public Ease easeCurve;
 
+    public AnimationController animationController;
+
     public float easeDuration;
 
     bool isLastCube = false;
