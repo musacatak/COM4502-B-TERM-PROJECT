@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject mainScreenUI;
     public GameObject progressBarUI;
     public GameObject sliderUI;
+    public AnimationController animControl;
 
     public TMPro.TextMeshProUGUI gemCounterTMP;
 
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
     {
         if (isLevelFinished)
         {
+            animControl.Dance();
             CompleteLevel(player.GetComponent<CubeHandler>().GetMultiplier());
         }
         else if (!isGameEnded && !isLevelFinished)
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
             isGameEnded = true;
             DisablePlayerInput();
             failLevelUI.SetActive(true);
+            animControl.Death();
             Debug.Log("GAME OVER!");
         }
     }

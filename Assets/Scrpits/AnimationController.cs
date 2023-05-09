@@ -6,7 +6,6 @@ public class AnimationController : MonoBehaviour
 {
     Animator animator;
     public Transform rigTransform;
-    bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +19,6 @@ public class AnimationController : MonoBehaviour
         //conditions
     }
 
-    public void Fall()
-    {
-        animator.SetBool("Falling", true);
-    }
 
     public void Land()
     {
@@ -32,30 +27,15 @@ public class AnimationController : MonoBehaviour
 
     public void Dance()
     {
+        Debug.Log("Dance");
         animator.SetBool("Dancing", true);
     }
 
     public void Death()
     {
+        Debug.Log("Death");
         animator.SetBool("isDead", true);
-        if (!isDead)
-        {
-            isDead = true;
-
-            animator.enabled = false;
-
-            //foreach (Rigidbody item in rigTransform.GetComponentInChildren<RigidBody>())
-            //{
-            //    item.isKinematic = false;
-            //    item.useGravity = true;
-            //}
-
-            //foreach (Collider item in rigTransform.GetComponentInChildren<Collider>())
-            //{
-            //    item.tag = "untagged";
-            //    item.isTrigger = false;
-            //}
-        }
+        animator.SetBool("Surfing", false);
 
     }
 
@@ -77,11 +57,5 @@ public class AnimationController : MonoBehaviour
 
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Collect"))
-        {
-            Fall();
-        }
-    }
+
 }
