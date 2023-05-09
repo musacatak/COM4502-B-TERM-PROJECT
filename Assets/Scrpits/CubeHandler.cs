@@ -11,6 +11,8 @@ public class CubeHandler : MonoBehaviour
 
     public Transform cameraTransform;
 
+    public AnimationController animControl;
+
     private float lastZPos;
     private bool isBlockRemoved;
 
@@ -34,6 +36,7 @@ public class CubeHandler : MonoBehaviour
         Instantiate(cubeParticle, _gameObject.transform.position, Quaternion.identity);
         blockList[blockList.Count - 1].GetComponent<CubeBehaviour>().setLastCube(false);
         blockList.Add(_gameObject);
+        animControl.Fall();
 
         camZPos -= 0.5f;
         Mathf.Clamp(camZPos, -20, -12);

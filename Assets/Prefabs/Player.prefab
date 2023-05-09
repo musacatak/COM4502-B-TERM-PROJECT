@@ -251,6 +251,7 @@ MonoBehaviour:
   - {fileID: 4142854431489226426}
   player: {fileID: 318158863812474235}
   cameraTransform: {fileID: 0}
+  animControl: {fileID: -2587753598626666342, guid: 9ff276a0b691ec44383cc779cbe061c4, type: 3}
   cubeParticle: {fileID: 525159109893753725, guid: e1f6d874e65c23540a97b90aec9bb2e5, type: 3}
   trailEffect: {fileID: 8163692908169438778}
   collector: {fileID: 9214121613909679308}

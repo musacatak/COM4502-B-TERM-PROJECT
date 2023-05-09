@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    Animator animator;
+    public Animator animator;
     public Transform rigTransform;
 
     // Start is called before the first frame update
@@ -27,15 +27,18 @@ public class AnimationController : MonoBehaviour
 
     public void Dance()
     {
-        Debug.Log("Dance");
         animator.SetBool("Dancing", true);
+    }
+
+    public void Fall()
+    {
+        Debug.Log("Fall");
+        animator.SetBool("Falling", true);
     }
 
     public void Death()
     {
-        Debug.Log("Death");
         animator.SetBool("isDead", true);
-        animator.SetBool("Surfing", false);
 
     }
 

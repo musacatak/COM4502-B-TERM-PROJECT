@@ -2109,6 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e539bfd8d184964aa7a799d59b378bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6637668489806749387}
   rigTransform: {fileID: 3580583118957702684}
 --- !u!95 &6637668489806749387
 Animator:
