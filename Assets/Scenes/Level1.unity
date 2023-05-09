@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18154712, g: 0.22719014, b: 0.30740643, a: 1}
+  m_IndirectSpecularColor: {r: 0.1815469, g: 0.22718976, b: 0.30740586, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -55134,7 +55134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -125.5}
+  m_AnchoredPosition: {x: 0, y: -190}
   m_SizeDelta: {x: 160, y: 49.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &7614446043748800934
@@ -55270,6 +55270,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 515310663}
+    - target: {fileID: 9214121614280157928, guid: 8020c0d196e7053449f36b1fda646c7d, type: 3}
+      propertyPath: animControl
+      value: 
+      objectReference: {fileID: 515310664}
     - target: {fileID: 9214121614280157928, guid: 8020c0d196e7053449f36b1fda646c7d, type: 3}
       propertyPath: cameraTransform
       value: 

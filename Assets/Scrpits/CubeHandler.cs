@@ -27,7 +27,7 @@ public class CubeHandler : MonoBehaviour
 
     public void AddBlock(GameObject _gameObject)
     {
-        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 2.5f, player.transform.position.z);
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 3.5f, player.transform.position.z);
         float yVal = blockList.Count;
         _gameObject.transform.SetParent(this.transform);
         _gameObject.transform.position = new Vector3(player.transform.position.x, yVal + 1.5f, player.transform.position.z);

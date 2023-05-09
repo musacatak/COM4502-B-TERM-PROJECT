@@ -32,7 +32,8 @@ public class CubeBehaviour : MonoBehaviour
             }
             if (isLastCube)
             {
-                FindObjectOfType<GameManager>().PlayerFailed();
+                FindObjectOfType<GameManager>().StopLevel();
+                return;
             }
             SFXManager.sfxInstance.Audio.PlayOneShot(SFXManager.sfxInstance.cubeLoseClip);
             Destroy(this.gameObject, 5f);

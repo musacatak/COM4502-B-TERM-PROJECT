@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayerFailed()
+    public void StopLevel()
     {
         if (isLevelFinished)
         {

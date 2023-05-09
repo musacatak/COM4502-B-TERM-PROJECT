@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    public Animator animator;
+    Animator animator;
     public Transform rigTransform;
 
     // Start is called before the first frame update
@@ -32,8 +32,7 @@ public class AnimationController : MonoBehaviour
 
     public void Fall()
     {
-        Debug.Log("Fall");
-        animator.SetBool("Falling", true);
+        animator.SetBool("Jump", true);
     }
 
     public void Death()
@@ -42,23 +41,14 @@ public class AnimationController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Land");
-        if (other.CompareTag("Collect"))
+        if (other.gameObject.tag == "Cube")
         {
-            Land();
+            Debug.Log("Cube coll");
+            animator.SetBool("Jump", false);
+            animator.SetBool("Surfing", true);
         }
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Collect"))
-        {
-            Land();
-        }
-
-    }
-
 
 }
