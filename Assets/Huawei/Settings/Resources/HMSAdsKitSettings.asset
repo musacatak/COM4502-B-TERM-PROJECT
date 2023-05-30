@@ -15,5 +15,27 @@ MonoBehaviour:
   settings:
     _keys:
     - UseTestAds
+    - EnableBannerAd
+    - EnableInterstitialAd
+    - EnableRewardedAd
+    - EnableSplashAd
+    - UnityBannerAdSizeType
+    - ShowBannerOnLoad
+    - RewardedAdID
+    - InterstitialAdID
+    - BannerAdID
+    - BannerRefreshInterval
+    - SplashAdID
     _values:
+    - False
     - True
+    - True
+    - True
+    - True
+    - BANNER_SIZE_SMART
+    - True
+    - testx9dtjwj8hp
+    - testb4znbuh3n2
+    - testw6vs28auh3
+    - 60
+    - testq6zq98hecj

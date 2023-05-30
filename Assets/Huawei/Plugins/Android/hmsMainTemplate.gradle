@@ -3,5 +3,10 @@ dependencies {
 	implementation 'com.huawei.agconnect:agconnect-core:1.6.5.300'
 	implementation 'com.huawei.hms:hmscoreinstaller:6.6.0.300'
 	implementation 'com.android.support:appcompat-v7:21.0.0'
+	implementation 'com.huawei.hms:ads-lite:13.4.61.300'
+	implementation 'com.huawei.hms:ads-consent:3.4.61.300'
+	implementation 'com.huawei.hms:ads-identifier:3.4.58.301'
+	implementation 'com.huawei.hms:ads-installreferrer:3.4.58.301'
 	implementation 'com.huawei.hms:hwid:6.9.0.301'
+	implementation 'com.huawei.hms:iap:6.4.0.301'
 	}

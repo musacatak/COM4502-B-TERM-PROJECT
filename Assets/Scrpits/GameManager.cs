@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI progressBarTMP;
 
     int currentGemCounter = 0;
+    int currentMultiplier = 1;
+    //ADS
+    bool doubleReward = false;
+    bool skipRequest = false;
+    bool doubleRewardRequest = false;
 
     int totalGemCounter = 0;
 
@@ -35,7 +41,7 @@ public class GameManager : MonoBehaviour
         totalGemCounter = GameInfo.totalGems;
         gemCounterTMP.SetText(totalGemCounter + "");
         currentLevel = GameInfo.level + 1;
-        progressBarTMP.SetText(currentLevel+"");
+        progressBarTMP.SetText(currentLevel + "");
         if (currentLevel % 5 == 1)
         {
             levelTxt[0].SetText(currentLevel + "");
@@ -99,6 +105,8 @@ public class GameManager : MonoBehaviour
     {
         if (!isLevelCompleted)
         {
+            doubleReward = false;
+            currentMultiplier = multiplier;
             isLevelCompleted = true;
             Debug.Log("Complete Level!");
             DisablePlayerInput();
@@ -106,9 +114,16 @@ public class GameManager : MonoBehaviour
             completeLevelTMP.SetText("GREAT!\n" + multiplier + "X");
             completeLevelGemTMP.SetText(currentGemCounter * multiplier + "");
             completeLevelUI.SetActive(true);
+        }
+    }
 
-            totalGemCounter += currentGemCounter * multiplier;
-            GameInfo.totalGems = totalGemCounter;
+    public void DoubleGem()
+    {
+        if (!doubleReward)
+        {
+            currentGemCounter *= 2;
+            completeLevelGemTMP.SetText(currentGemCounter * currentMultiplier + "");
+            doubleReward = true;
         }
     }
 
@@ -120,6 +135,42 @@ public class GameManager : MonoBehaviour
         progressBarUI.SetActive(true);
         EnablePlayerInput();
         currentGemCounter = 0;
+        currentMultiplier = 1;
+        skipRequest = false;
+        doubleRewardRequest = false;
+        doubleReward = false;
+    }
+
+    public void SkipLevel()
+    {
+        if (!skipRequest)
+        {
+            skipRequest = true;
+            AdsManager.Instance.ShowRewardedAd();
+            GameObject.Find("ReviveButton").GetComponent<Button>().interactable = false;
+        }
+    }
+
+    public void DoubleRewardButton()
+    {
+        if (!doubleRewardRequest)
+        {
+            doubleRewardRequest = true;
+            AdsManager.Instance.ShowRewardedAd();
+            GameObject.Find("DoubleGemButton").GetComponent<Button>().interactable = false;
+        }
+    }
+
+    public void AdsResponse()
+    {
+        if (skipRequest)
+        {
+            LoadNextLevel();
+        }
+        else if (doubleRewardRequest)
+        {
+            DoubleGem();
+        }
     }
 
     public void RestartButton()
@@ -129,6 +180,9 @@ public class GameManager : MonoBehaviour
 
     public void NextButton()
     {
+        totalGemCounter += (currentGemCounter * currentMultiplier);
+        GameInfo.totalGems = totalGemCounter;
+        AdsManager.Instance.ShowInterstitialAd();
         Invoke("LoadNextLevel", 1f);
     }
 
@@ -139,6 +193,7 @@ public class GameManager : MonoBehaviour
 
     void Restart()
     {
+        AdsManager.Instance.ShowInterstitialAd();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
