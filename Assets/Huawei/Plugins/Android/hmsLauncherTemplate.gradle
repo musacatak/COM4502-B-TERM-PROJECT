@@ -1,0 +1,20 @@
+apply plugin: 'com.huawei.agconnect'
+
+dependencies {
+	implementation 'com.huawei.hms:base:6.6.0.300'
+	
+	implementation 'com.huawei.agconnect:agconnect-core:1.6.5.300'
+	
+	implementation 'com.huawei.hms:hmscoreinstaller:6.6.0.300'
+	
+	implementation 'com.android.support:appcompat-v7:21.0.0'
+	
+	implementation 'com.huawei.hms:hwid:6.9.0.301'
+	
+}
+android {
+packagingOptions {
+pickFirst "okhttp3/internal/publicsuffix/publicsuffixes.gz"
+pickFirst "**/*.so"
+}
+}
