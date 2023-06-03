@@ -38,17 +38,6 @@ public class GameManager : MonoBehaviour
 
     int currentLevel;
 
-    void start()
-    {
-        HMSAccountManager.Instance.OnSignInSuccess = SignInSuccess;
-        HMSAccountManager.Instance.OnSignInFailed = SignInFailed;
-        HMSAccountManager.Instance.SignIn();
-    }
-
-    private void SignInSuccess(AuthAccount authAccount)
-    {
-        Debug.Log("OnLoginSucces User Name: ", authAccount.DisplayName);
-    }
 
     private void Awake()
     {
