@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using HmsPlugin;
+using HuaweiMobileServices.Id;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +37,18 @@ public class GameManager : MonoBehaviour
     bool isLevelCompleted = false;
 
     int currentLevel;
+
+    void start()
+    {
+        HMSAccountManager.Instance.OnSignInSuccess = SignInSuccess;
+        HMSAccountManager.Instance.OnSignInFailed = SignInFailed;
+        HMSAccountManager.Instance.SignIn();
+    }
+
+    private void SignInSuccess(AuthAccount authAccount)
+    {
+        Debug.Log("OnLoginSucces User Name: ", authAccount.DisplayName);
+    }
 
     private void Awake()
     {
