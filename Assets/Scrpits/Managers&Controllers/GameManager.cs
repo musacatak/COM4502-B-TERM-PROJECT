@@ -3,10 +3,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using HmsPlugin;
 using HuaweiMobileServices.Id;
+using HuaweiMobileServices.Base;
+using HuaweiMobileServices.Game;
+using HuaweiMobileServices.Utils;
 
 public class GameManager : MonoBehaviour
 {
     bool isGameEnded = false;
+    public bool isOwned { get; set; }
 
     public GameObject completeLevelUI;
     public TMPro.TextMeshProUGUI completeLevelGemTMP;
@@ -15,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject mainScreenUI;
     public GameObject progressBarUI;
     public GameObject sliderUI;
+    public GameObject NoAdsButton;
     public AnimationController animControl;
 
     public TMPro.TextMeshProUGUI gemCounterTMP;
@@ -117,6 +122,14 @@ public class GameManager : MonoBehaviour
             completeLevelTMP.SetText("GREAT!\n" + multiplier + "X");
             completeLevelGemTMP.SetText(currentGemCounter * multiplier + "");
             completeLevelUI.SetActive(true);
+        }
+    }
+    
+    void Update()
+    {
+        if (!isOwned)
+        {
+            Debug.Log(" Show ADS ! ");
         }
     }
 
@@ -231,5 +244,20 @@ public class GameManager : MonoBehaviour
         player.GetComponent<SwerveMovement>().EnableSwerveMove();
     }
 
+    //public void OnNoAdsClick()
+    //{
+    //    HMSIAPManager.OnBuyProductSucces = OnBuyProductSucces;
+    //    HMSIAPManager.Instance.BuyProduct(HMSIAPConstants.AdsRemove);
+        
+    //}
+
+    //void OnBuyProductSuccess(PurchaseResultInfo result)
+    //{
+    //    if (result.InAppPurchaseData.ProductId == HMSIAPConstants.AdsRemove)
+    //    {
+    //        Debug.Log("OnBuyProductSuccess");
+    //        GameManager.Instance.isOwned = true;
+    //    }
+    //}
 
 }
